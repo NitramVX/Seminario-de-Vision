@@ -62,10 +62,16 @@ nav img{
 
 .conf1 {
      animation: linear revealLeft both;
+     -webkit-animation: linear revealLeft both;
+     -moz-animation: linear revealLeft both;
+     -o-animation: linear revealLeft both;
 }
 
 .conf2 {
     animation: linear revealRight both;
+    -webkit-animation: linear revealRight both;
+    -moz-animation: linear revealRight both;
+    -o-animation: linear revealRight both;
 }
 
 .conferencista img{
