@@ -9,7 +9,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: "Be Vietnam Pro", sans-serif;;
+    font-family: "Be Vietnam Pro", sans-serif;
 }
 
 nav img{ 
@@ -24,21 +24,62 @@ nav img{
     width: 100%;
     display: block;
     position: absolute;
-    top: 0;
+    top: -2rem;
 }
 
 .conferencista{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    position: relative;
+}
+
+@keyframes revealLeft {
+	from {
+		opacity: 0;
+        transform: translateX(-130px);
+		/* clip-path: inset(45% 20% 45% 20%); */
+	}
+	to {
+		opacity: 1;
+        transform: translateX(0);
+		/* clip-path: inset(0% 0% 0% 0%); */
+	}
+}
+
+@keyframes revealRight {
+	from {
+		opacity: 0;
+        transform: translateX(130px);
+		/* clip-path: inset(45% 20% 45% 20%); */
+	}
+	to {
+		opacity: 1;
+        transform: translateX(0);
+		/* clip-path: inset(0% 0% 0% 0%); */
+	}
+}
+
+.conf1 {
+     animation: linear revealLeft both;
+}
+
+.conf2 {
+    animation: linear revealRight both;
 }
 
 .conferencista img{
-    width: 40%;
+    width: 35%;
     position: relative;
-    top: 60rem;
-    margin-bottom: 10rem;
+    top: 70rem;
+    margin-bottom: 20rem;
+    /* animation: linear reveal both; */
+	animation-timeline: --revealing-image;
+	animation-range: entry 25% cover 50%;
+    view-timeline-name: --revealing-image;
+	view-timeline-axis: block;
 }
+
 
 form {
     display: flex;
@@ -58,6 +99,22 @@ form {
     display: block;
     margin: 0 auto;
     top: 60rem;
+    animation: linear revealReg both;
+    animation-timeline: --revealing-image;
+	animation-range: entry 25% cover 50%;
+    view-timeline-name: --revealing-image;
+	view-timeline-axis: block;
+}
+
+@keyframes revealReg {
+	from {
+		opacity: 0;
+		clip-path: inset(45% 20% 45% 20%);
+	}
+	to {
+		opacity: 1;
+		clip-path: inset(0% 0% 0% 0%);
+	}
 }
 
 label{
@@ -107,7 +164,7 @@ footer{
     align-items: center;
     background-color: rgb(143, 143, 143);
     height: 7rem;
-    color: aqua;
+    color: #00ffff;
     font-family: "Be Vietnam Pro", sans-serif;
     font-weight: bolder;
     position: relative;
@@ -129,4 +186,14 @@ footer a{
 
 footer a:hover{
     text-decoration: underline;
+}
+
+.scroll-top{
+    transform: scale(0.08);
+    height: 3rem;
+    right: -320px;
+    bottom: 80px;
+    position: fixed;
+    cursor: pointer;
+    filter: invert(96%) sepia(12%) saturate(3954%) hue-rotate(101deg) brightness(104%) contrast(105%);
 }
